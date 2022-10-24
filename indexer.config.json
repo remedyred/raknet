@@ -1,0 +1,5 @@
+{
+	"source": "src/**/*",
+	"output": "src/index.ts",
+	"type": "wildcard"
+}

@@ -1,0 +1,44 @@
+{
+	"name": "@snickbit/raknet",
+	"version": "0.0.0",
+	"description": "Basic RakNet implementation written in TypeScript",
+	"keywords": [
+		"nodejs",
+		"raknet"
+	],
+	"license": "MIT",
+	"author": "snickbit",
+	"exports": {
+		"require": "./dist/index.js",
+		"import": "./dist/index.mjs",
+		"types": "./dist/index.d.ts"
+	},
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsup --minify",
+		"build:dev": "tsup",
+		"clean": "shx rm -rf dist",
+		"dev": "tsup --watch",
+		"fix": "eslint \"**/*.{ts,json,yml,yaml}\" --cache --color --fix",
+		"index": "indexer",
+		"lint": "eslint \"**/*.{ts,json,yml,yaml}\" --cache --color",
+		"types": "tsc --project ./tsconfig.types.json"
+	},
+	"dependencies": {
+		"@jsprismarine/jsbinaryutils": "3.2.3"
+	},
+	"devDependencies": {
+		"@snickbit/eslint-config": "1.3.8",
+		"@snickbit/indexer": "^2.5.27",
+		"@snickbit/semantic-release": "1.6.0",
+		"@types/node": "18.11.4",
+		"shx": "0.3.4",
+		"tsup": "6.3.0",
+		"typescript": "4.8.4"
+	}
+}
