@@ -2,7 +2,7 @@ import BinaryStream from '@jsprismarine/jsbinaryutils'
 import INetAddress from '../utils/INetAddress'
 
 export default class Packet extends BinaryStream {
-	private readonly id: number
+	protected readonly id: number
 
 	public constructor(id: number, buffer?: Buffer) {
 		super(buffer)

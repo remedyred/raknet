@@ -1,12 +1,12 @@
 export default class ServerName {
-	private readonly server: any
-	private motd: string
-	private name = 'JSRakNet'
-	private protocol
-	private version
-	private maxPlayers: number
-	private gamemode: string
-	private serverId = 0n
+	protected readonly server: any
+	protected motd: string
+	protected name = 'SNRakNet'
+	protected protocol
+	protected version
+	protected maxPlayers: number
+	protected gamemode: string
+	protected serverId = 0n
 
 	public constructor(server: any) {
 		this.server = server

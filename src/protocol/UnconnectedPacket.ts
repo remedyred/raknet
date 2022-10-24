@@ -2,7 +2,7 @@ import {RAKNET_MAGIC} from '../common'
 import Packet from './Packet'
 
 export default class UnconnectedPacket extends Packet {
-	private magic: Buffer
+	protected magic: Buffer
 
 	// Used to read offline packets magic (needed to validate the packet)
 	public readMagic(): void {

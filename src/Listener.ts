@@ -9,10 +9,10 @@ import Session from './Session'
 import UnconnectedHandler from './protocol/UnconnectedHandler'
 
 export default class Listener extends EventEmitter {
-	private readonly guid: bigint
-	private readonly sessions: Map<string, Session> = new Map()
-	private readonly socket: dgram.Socket
-	private readonly onlineMode: boolean
+	protected readonly guid: bigint
+	protected readonly sessions: Map<string, Session> = new Map()
+	protected readonly socket: dgram.Socket
+	protected readonly onlineMode: boolean
 
 	public constructor(onlineMode = true) {
 		super()
@@ -42,7 +42,7 @@ export default class Listener extends EventEmitter {
 		return [...this.sessions.values()]
 	}
 
-	private getSession(rinfo: RemoteInfo): Session | null {
+	protected getSession(rinfo: RemoteInfo): Session | null {
 		return this.sessions.get(`${rinfo.address}:${rinfo.port}`) ?? null
 	}
 

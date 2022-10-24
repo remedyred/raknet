@@ -30,37 +30,37 @@ export enum RakNetStatus {
 }
 
 export default class Session {
-	private readonly listener: Listener
-	private readonly mtuSize: number
+	protected readonly listener: Listener
+	protected readonly mtuSize: number
 	protected readonly rinfo: RemoteInfo
 
-	private readonly offlineMode: boolean
+	protected readonly offlineMode: boolean
 
-	private state = RakNetStatus.CONNECTING
+	protected state = RakNetStatus.CONNECTING
 
-	private outputFrameQueue = new FrameSet()
-	private outputSequenceNumber = 0
-	private outputReliableIndex = 0
-	private outputSequenceIndex = 0
-	private readonly outputBackupQueue: Map<number, FrameSet> = new Map()
+	protected outputFrameQueue = new FrameSet()
+	protected outputSequenceNumber = 0
+	protected outputReliableIndex = 0
+	protected outputSequenceIndex = 0
+	protected readonly outputBackupQueue: Map<number, FrameSet> = new Map()
 
-	private receivedFrameSequences: Set<number> = new Set()
-	private lostFrameSequences: Set<number> = new Set()
+	protected receivedFrameSequences: Set<number> = new Set()
+	protected lostFrameSequences: Set<number> = new Set()
 
 	// Map holding fragments of fragmented packets
-	private readonly fragmentsQueue: Map<number, Map<number, Frame>> = new Map()
-	private outputFragmentIndex = 0
+	protected readonly fragmentsQueue: Map<number, Map<number, Frame>> = new Map()
+	protected outputFragmentIndex = 0
 
-	private lastInputSequenceNumber = -1
-	private readonly inputHighestSequenceIndex: number[]
-	private readonly inputOrderIndex: number[]
-	private inputOrderingQueue: Map<number, Map<number, Frame>> = new Map()
+	protected lastInputSequenceNumber = -1
+	protected readonly inputHighestSequenceIndex: number[]
+	protected readonly inputOrderIndex: number[]
+	protected inputOrderingQueue: Map<number, Map<number, Frame>> = new Map()
 
-	private readonly channelIndex: number[]
+	protected readonly channelIndex: number[]
 
 	// Last timestamp of packet received, helpful for timeout
-	private lastUpdate: number = Date.now()
-	private active = true
+	protected lastUpdate: number = Date.now()
+	protected active = true
 
 	public constructor(listener: Listener, mtuSize: number, rinfo: RemoteInfo, offlineMode = false) {
 		this.listener = listener
@@ -126,7 +126,7 @@ export default class Session {
 		}
 	}
 
-	private handleFrameSet(frameSet: FrameSet): void {
+	protected handleFrameSet(frameSet: FrameSet): void {
 		// Check if we already received packet and so we don't handle them
 		if (this.receivedFrameSequences.has(frameSet.sequenceNumber)) {
 			return
@@ -178,7 +178,7 @@ export default class Session {
 		}
 	}
 
-	private handleACK(ack: Ack): void {
+	protected handleACK(ack: Ack): void {
 		// TODO: ping calculation
 
 		for (const seq of ack.sequenceNumbers) {
@@ -188,7 +188,7 @@ export default class Session {
 	}
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	private handleNACK(_: Nack): void {
+	protected handleNACK(_: Nack): void {
 		// TODO: properly handle NACKs
 		// for (const seq of nack.sequenceNumbers) {
 		//    console.log(`NAKC ${seq}`);
@@ -203,7 +203,7 @@ export default class Session {
 		// }
 	}
 
-	private receiveFrame(frame: Frame): void {
+	protected receiveFrame(frame: Frame): void {
 		if (frame.isFragmented()) {
 			this.handleFragment(frame)
 			return
@@ -300,7 +300,7 @@ export default class Session {
 		}
 	}
 
-	private addFrameToQueue(frame: Frame, priority = RakNetPriority.NORMAL): void {
+	protected addFrameToQueue(frame: Frame, priority = RakNetPriority.NORMAL): void {
 		if (this.outputFrameQueue.getByteLength() + frame.getByteLength() > this.mtuSize) {
 			this.sendFrameQueue()
 		}
@@ -312,7 +312,7 @@ export default class Session {
 		}
 	}
 
-	private handlePacket(packet: Frame): void {
+	protected handlePacket(packet: Frame): void {
 		const id = packet.content[0]
 
 		if (this.state === RakNetStatus.CONNECTING) {
@@ -371,12 +371,12 @@ export default class Session {
 		}
 	}
 
-	private sendFrameSet(frameSet: FrameSet): void {
+	protected sendFrameSet(frameSet: FrameSet): void {
 		this.sendPacket(frameSet)
 		this.outputBackupQueue.set(frameSet.sequenceNumber, frameSet)
 	}
 
-	private sendPacket(packet: Packet): void {
+	protected sendPacket(packet: Packet): void {
 		this.listener.sendPacket(packet, this.rinfo)
 	}
 

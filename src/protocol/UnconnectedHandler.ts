@@ -12,7 +12,7 @@ import Listener from '../Listener'
 import INetAddress from '../utils/INetAddress'
 
 export default class UnconnectedHandler {
-	private readonly listener: Listener
+	protected readonly listener: Listener
 
 	public constructor(listener: Listener) {
 		this.listener = listener
