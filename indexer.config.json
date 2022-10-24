@@ -1,5 +1,11 @@
 {
 	"source": "src/**/*",
 	"output": "src/index.ts",
-	"type": "wildcard"
+	"type": "default",
+	"ignore": [
+		"src/common.ts"
+	],
+	"overrides": {
+		"**/Protocol.ts": "wildcard"
+	}
 }
