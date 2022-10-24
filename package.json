@@ -40,5 +40,16 @@
 		"shx": "0.3.4",
 		"tsup": "6.3.0",
 		"typescript": "4.8.4"
+	},
+	"tsup": {
+		"entry": [
+			"src/index.ts"
+		],
+		"clean": true,
+		"dts": false,
+		"format": [
+			"cjs"
+		],
+		"onSuccess": "pnpm run types"
 	}
 }

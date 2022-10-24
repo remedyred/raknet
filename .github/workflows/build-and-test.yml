@@ -1,0 +1,14 @@
+name: CI
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  build:
+    name: Build, lint, and Test
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build, Test, and Lint
+        uses: remedyred/build-and-test-action@v1.0.8
