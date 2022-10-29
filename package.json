@@ -29,6 +29,11 @@
 		"lint": "eslint \"**/*.{ts,json,yml,yaml}\" --cache --color",
 		"types": "tsc --project ./tsconfig.types.json"
 	},
+	"release": {
+		"extends": [
+			"@snickbit/semantic-release"
+		]
+	},
 	"dependencies": {
 		"@jsprismarine/jsbinaryutils": "3.2.3"
 	},
@@ -37,9 +42,13 @@
 		"@snickbit/indexer": "^2.5.27",
 		"@snickbit/semantic-release": "1.6.0",
 		"@types/node": "18.11.4",
+		"semantic-release": "^19.0.5",
 		"shx": "0.3.4",
 		"tsup": "6.3.0",
 		"typescript": "4.8.4"
+	},
+	"publishConfig": {
+		"access": "public"
 	},
 	"tsup": {
 		"entry": [

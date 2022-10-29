@@ -11,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build, Test, and Lint
-        uses: remedyred/build-and-test-action@v1.0.8
+        uses: remedyred/build-and-test-action@v1.0.10
