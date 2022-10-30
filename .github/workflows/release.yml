@@ -17,6 +17,7 @@ jobs:
         with:
           release-type: node
           package-name: "@snickbit/raknet"
+          token: ${{ secrets.GH_TOKEN }}
 
   publish:
     needs: release
