@@ -1,6 +1,6 @@
 {
 	"name": "@snickbit/raknet",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Basic RakNet implementation written in TypeScript",
 	"keywords": [
 		"nodejs",

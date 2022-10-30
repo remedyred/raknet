@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/remedyred/raknet/compare/v1.0.2...v1.0.3) (2022-10-30)
+
+
+### Bug Fixes
+
+* **ci:** remove erroneous conditionals ([6c3d190](https://github.com/remedyred/raknet/commit/6c3d190a4ea71cd9768c93b98c50558d765da63f))
+
 ## [1.0.2](https://github.com/remedyred/raknet/compare/v1.0.1...v1.0.2) (2022-10-30)
 
 
