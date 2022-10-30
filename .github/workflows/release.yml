@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - next
 
 jobs:
   release:
@@ -16,8 +15,27 @@ jobs:
       issues: write
       contents: write
     steps:
-      - name: Release
-        uses: remedyred/semantic-release-action@v1.0.6
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN }}
+
+      - uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm semantic-release
