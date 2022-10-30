@@ -10,7 +10,7 @@ import UnconnectedHandler from './protocol/UnconnectedHandler'
 
 export default class Listener extends EventEmitter {
 	protected readonly guid: bigint
-	protected readonly sessions: Map<string, Session> = new Map()
+	protected readonly sessions = new Map<string, Session>()
 	protected readonly socket: dgram.Socket
 	protected readonly onlineMode: boolean
 
