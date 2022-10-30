@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/remedyred/raknet/compare/v1.0.3...v1.0.4) (2022-10-30)
+
+
+### Bug Fixes
+
+* **ci:** set proper NODE_AUTH_TOKEN ([d5c00d5](https://github.com/remedyred/raknet/commit/d5c00d5b8d21c8cb204cef46a3c136915d7bada9))
+
 ## [1.0.3](https://github.com/remedyred/raknet/compare/v1.0.2...v1.0.3) (2022-10-30)
 
 
