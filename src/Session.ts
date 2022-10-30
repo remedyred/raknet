@@ -42,19 +42,19 @@ export default class Session {
 	protected outputSequenceNumber = 0
 	protected outputReliableIndex = 0
 	protected outputSequenceIndex = 0
-	protected readonly outputBackupQueue: Map<number, FrameSet> = new Map()
+	protected readonly outputBackupQueue = new Map<number, FrameSet>()
 
-	protected receivedFrameSequences: Set<number> = new Set()
-	protected lostFrameSequences: Set<number> = new Set()
+	protected receivedFrameSequences = new Set<number>()
+	protected lostFrameSequences = new Set<number>()
 
 	// Map holding fragments of fragmented packets
-	protected readonly fragmentsQueue: Map<number, Map<number, Frame>> = new Map()
+	protected readonly fragmentsQueue = new Map<number, Map<number, Frame>>()
 	protected outputFragmentIndex = 0
 
 	protected lastInputSequenceNumber = -1
 	protected readonly inputHighestSequenceIndex: number[]
 	protected readonly inputOrderIndex: number[]
-	protected inputOrderingQueue: Map<number, Map<number, Frame>> = new Map()
+	protected inputOrderingQueue = new Map<number, Map<number, Frame>>()
 
 	protected readonly channelIndex: number[]
 
@@ -264,7 +264,7 @@ export default class Session {
 		const maxMtu = this.mtuSize - 36
 		if (frame.getByteLength() + 4 > maxMtu) {
 			// Split the buffer into chunks
-			const buffers: Map<number, Buffer> = new Map()
+			const buffers = new Map<number, Buffer>()
 			let index = 0
 			let splitIndex = 0
 

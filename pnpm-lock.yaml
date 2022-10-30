@@ -5,7 +5,7 @@ specifiers:
   '@snickbit/eslint-config': 1.4.0
   '@snickbit/indexer': 2.5.28
   '@snickbit/semantic-release': 1.6.2
-  '@types/node': 18.11.4
+  '@types/node': 18.11.7
   semantic-release: 19.0.5
   shx: 0.3.4
   tsup: 6.3.0
@@ -18,7 +18,7 @@ devDependencies:
   '@snickbit/eslint-config': 1.4.0_wyqvi574yv7oiwfeinomdzmc3m
   '@snickbit/indexer': 2.5.28
   '@snickbit/semantic-release': 1.6.2_semantic-release@19.0.5
-  '@types/node': 18.11.4
+  '@types/node': 18.11.7
   semantic-release: 19.0.5
   shx: 0.3.4
   tsup: 6.3.0_typescript@4.8.4
@@ -517,7 +517,7 @@ packages:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 18.11.4
+      '@types/node': 18.11.7
     dev: true
 
   /@types/json-schema/7.0.11:
@@ -532,8 +532,8 @@ packages:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: true
 
-  /@types/node/18.11.4:
-    resolution: {integrity: sha512-BxcJpBu8D3kv/GZkx/gSMz6VnTJREBj/4lbzYOQueUOELkt8WrO6zAcSPmp9uRPEW/d+lUO8QK0W2xnS1hEU0A==}
+  /@types/node/18.11.7:
+    resolution: {integrity: sha512-LhFTglglr63mNXUSRYD8A+ZAIu5sFqNJ4Y2fPuY7UlrySJH87rRRlhtVmMHplmfk5WkoJGmDjE9oiTfyX94CpQ==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
