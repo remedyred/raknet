@@ -8,20 +8,31 @@ on:
 jobs:
   release:
     name: Release
-    timeout-minutes: 30
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-      issues: write
-      contents: write
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          release-type: node
+          package-name: "@snickbit/raknet"
+
+  publish:
+    needs: release
+    if: ${{ needs.release.outputs.release_created }}
+    name: Publish
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
+        if: ${{ steps.release.outputs.release_created }}
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
           token: ${{ secrets.GH_TOKEN }}
 
       - uses: pnpm/action-setup@v2.2.4
+        if: ${{ steps.release.outputs.release_created }}
         with:
           version: 7
 
@@ -36,6 +47,5 @@ jobs:
 
       - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpm semantic-release
+        run: pnpm publish
