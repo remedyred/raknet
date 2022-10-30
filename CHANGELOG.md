@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/remedyred/raknet/compare/v1.0.4...v1.0.5) (2022-10-30)
+
+
+### Bug Fixes
+
+* **ci:** use npm_config__authtoken as recommended by pnpm ([fc291dd](https://github.com/remedyred/raknet/commit/fc291dd83c98578401a6f0c3b88304db5a217214))
+
 ## [1.0.4](https://github.com/remedyred/raknet/compare/v1.0.3...v1.0.4) (2022-10-30)
 
 
