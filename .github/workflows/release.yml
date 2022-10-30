@@ -45,5 +45,5 @@ jobs:
 
       - name: Release
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          npm_config__authtoken: ${{ secrets.NPM_TOKEN }}
         run: pnpm publish
