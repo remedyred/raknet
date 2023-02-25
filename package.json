@@ -38,7 +38,7 @@
 		"@jsprismarine/jsbinaryutils": "3.2.3"
 	},
 	"devDependencies": {
-		"@snickbit/eslint-config": "1.4.0",
+		"@snickbit/eslint-config": "1.4.4",
 		"@snickbit/indexer": "2.5.28",
 		"@snickbit/semantic-release": "1.6.2",
 		"@types/node": "18.11.7",
