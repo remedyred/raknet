@@ -41,7 +41,7 @@
 		"@snickbit/eslint-config": "1.4.0",
 		"@snickbit/indexer": "2.5.28",
 		"@snickbit/semantic-release": "1.6.2",
-		"@types/node": "18.11.7",
+		"@types/node": "18.14.6",
 		"semantic-release": "19.0.5",
 		"shx": "0.3.4",
 		"tsup": "6.3.0",
